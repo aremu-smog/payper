@@ -1,0 +1,18 @@
+extends layout
+
+block content
+  header(class="main-header")
+    h1 Payper
+    p Make payments with a screenshot
+  div(class="dashboard")
+    div(id="preview", class="preview")
+      p Click to select image
+    form( id="uploadForm") 
+      input(type="file", name="image", id="image", required )
+      button(type="button", id="submitButton") Analyze Image
+    div(class="info-area")
+      div(id="info")
+      button(id="paymentButton") Make Payment
+  footer(class="main-footer") 
+    p Build with Anthropic and Paystack by Aremu Smog in a couple of hours
+

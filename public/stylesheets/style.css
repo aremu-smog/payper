@@ -1,0 +1,70 @@
+body {
+	font: 16px Helvetica, Arial, sans-serif;
+}
+
+a {
+	color: #00b7ff;
+}
+
+h1 {
+	color: #00b7ff;
+	font-size: 36px;
+	text-align: center;
+}
+
+li {
+	margin-bottom: 2px;
+}
+
+#image,
+#paymentButton {
+	display: none;
+}
+button {
+	background-color: #00b7ff;
+	border: none;
+	padding: 16px 32px;
+	border-radius: 8px;
+	font-size: 14px;
+	cursor: pointer;
+	display: block;
+	width: 100%;
+	margin-bottom: 16px;
+}
+
+.dashboard {
+	max-width: 450px;
+	margin: auto;
+	min-height: 500px;
+	gap: 32px;
+}
+
+.preview {
+	background-color: #f0f0f0;
+	width: 100%;
+	border-radius: 12px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	cursor: pointer;
+	margin-bottom: 16px;
+	height: 400px;
+	overflow-y: scroll;
+}
+.preview-image {
+	width: 350px;
+}
+
+.payment-field {
+	text-transform: capitalize;
+}
+
+.main-header,
+.main-footer {
+	text-align: center;
+}
+
+.loading {
+	opacity: 0.5;
+	cursor: not-allowed;
+}
