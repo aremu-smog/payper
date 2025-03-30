@@ -55,14 +55,15 @@ router.post("/", upload.single("image"), async function (req, res, next) {
 				{
 					role: "user",
 					content: [
-						{ type: "text", text: `${supportedBanks}` },
 						{
 							type: "text",
 							text: `Analyze this image and return only a JSON object following the structure: 
 							{"account_name": "", 
 							"account_number":"",
 							"bank_name":"", 
-							bank_code:"use banks list supplied",
+							"bank_code":"extract from this list of banks: ${JSON.stringify(
+								supportedBanks
+							)} based on the bank name ",
 							"amount_to_be_paid":"ensure value is in kobo"
 							}`,
 						},
@@ -80,7 +81,6 @@ router.post("/", upload.single("image"), async function (req, res, next) {
 			model: "claude-3-5-sonnet-latest",
 		})
 
-		console.log(message.content)
 		const details = []
 
 		const jsonData = JSON.parse(message.content[0].text)
@@ -109,75 +109,22 @@ router.post("/", upload.single("image"), async function (req, res, next) {
 
 module.exports = router
 
-const supportedBanks = {
-	banks: [
-		{
-			id: 688,
-			name: "Moniepoint MFB",
-			slug: "moniepoint-mfb-ng",
-			code: "50515",
-			longcode: "null",
-			gateway: null,
-			pay_with_bank: false,
-			supports_transfer: true,
-			active: true,
-			country: "Nigeria",
-			currency: "NGN",
-			type: "nuban",
-			is_deleted: false,
-			createdAt: "2023-03-20T12:53:58.000Z",
-			updatedAt: "2023-03-20T12:53:58.000Z",
-		},
-		{
-			id: 629,
-			name: "Paystack-Titan",
-			slug: "titan-paystack",
-			code: "100039",
-			longcode: "",
-			gateway: null,
-			pay_with_bank: false,
-			supports_transfer: true,
-			active: true,
-			country: "Nigeria",
-			currency: "NGN",
-			type: "nuban",
-			is_deleted: false,
-			createdAt: "2022-09-02T08:51:15.000Z",
-			updatedAt: "2024-03-26T14:31:05.000Z",
-		},
-		{
-			id: 20,
-			name: "Wema Bank",
-			slug: "wema-bank",
-			code: "035",
-			longcode: "035150103",
-			gateway: null,
-			pay_with_bank: false,
-			supports_transfer: true,
-			active: true,
-			country: "Nigeria",
-			currency: "NGN",
-			type: "nuban",
-			is_deleted: false,
-			createdAt: "2016-07-14T10:04:29.000Z",
-			updatedAt: "2021-02-09T17:49:59.000Z",
-		},
-		{
-			id: 171,
-			name: "OPay Digital Services Limited (OPay)",
-			slug: "paycom",
-			code: "999992",
-			longcode: "",
-			gateway: "ibank",
-			pay_with_bank: true,
-			supports_transfer: true,
-			active: true,
-			country: "Nigeria",
-			currency: "NGN",
-			type: "nuban",
-			is_deleted: false,
-			createdAt: "2020-11-24T10:20:45.000Z",
-			updatedAt: "2025-01-22T17:04:57.000Z",
-		},
-	],
-}
+const supportedBanks = [
+	{
+		name: "Moniepoint MFB",
+		code: "50515",
+	},
+	{
+		name: "Paystack-Titan",
+		code: "100039",
+	},
+	{
+		name: "Wema Bank",
+		code: "035",
+	},
+	{
+		id: 171,
+		name: "OPay Digital Services Limited (OPay)",
+		code: "999992",
+	},
+]
