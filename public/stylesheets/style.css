@@ -1,19 +1,28 @@
+:root {
+	--primary-color: rgb(41, 41, 41);
+}
 body {
-	font: 16px Helvetica, Arial, sans-serif;
+	font: 14px Helvetica, Arial, sans-serif;
+	color: var(--primary-color);
 }
 
 a {
-	color: #00b7ff;
+	color: var(--primary-color);
 }
-
 h1 {
-	color: #00b7ff;
 	font-size: 36px;
 	text-align: center;
+	line-height: 0;
 }
 
+ul {
+	width: 100%;
+	padding: 0px;
+}
 li {
-	margin-bottom: 2px;
+	margin-bottom: 8px;
+	color: var(--primary-color);
+	list-style: none;
 }
 
 #image,
@@ -21,7 +30,7 @@ li {
 	display: none;
 }
 button {
-	background-color: #00b7ff;
+	background-color: var(--primary-color);
 	border: none;
 	padding: 16px 32px;
 	border-radius: 8px;
@@ -30,6 +39,7 @@ button {
 	display: block;
 	width: 100%;
 	margin-bottom: 16px;
+	color: white;
 }
 
 .dashboard {
@@ -51,6 +61,9 @@ button {
 	height: 400px;
 	overflow-y: scroll;
 }
+.preview:hover {
+	opacity: 0.75;
+}
 .preview-image {
 	width: 350px;
 }
@@ -62,6 +75,7 @@ button {
 .main-header,
 .main-footer {
 	text-align: center;
+	padding-block: 16px;
 }
 
 .loading {

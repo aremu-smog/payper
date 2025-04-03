@@ -32,6 +32,14 @@ paymentButton.addEventListener("click", async () => {
 
 	if (!data.bank_code) {
 		alert("No bank code, upload another image")
+		window.location.reload()
+		return
+	}
+
+	if (!Number(data.amount_to_be_paid)) {
+		alert("No amount, upload another image")
+		window.location.reload()
+		return
 	}
 
 	try {

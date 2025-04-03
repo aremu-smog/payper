@@ -123,7 +123,6 @@ const supportedBanks = [
 		code: "035",
 	},
 	{
-		id: 171,
 		name: "OPay Digital Services Limited (OPay)",
 		code: "999992",
 	},
