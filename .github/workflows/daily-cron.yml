@@ -1,0 +1,15 @@
+# Simulated request to site so that website server doesn't go downon
+name: Daily cURL Check
+
+on:
+  schedule:
+    - cron: '0 0 * * *'  # Runs daily at midnight UTC
+  workflow_dispatch:  # Allows manual triggering
+
+jobs:
+  curl-website:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Run cURL on Website
+        run: curl -I https://payper-fnk9.onrender.com
