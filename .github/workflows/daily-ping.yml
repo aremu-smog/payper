@@ -3,7 +3,7 @@ name: Daily render ping
 
 on:
   schedule:
-    - cron: '0 23 * * *'  # Runs daily at midnight UTC
+    - cron: '0 */6 * * *'  # Runs daily at midnight UTC
   workflow_dispatch:  # Allows manual triggering
 
 jobs:
@@ -13,3 +13,5 @@ jobs:
     steps:
       - name: Run cURL on Website
         run: curl -I https://payper-fnk9.onrender.com
+      - name: Run cURL on Website
+        run: curl -I https://homefront.xtrackr.me
